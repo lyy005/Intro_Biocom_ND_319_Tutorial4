@@ -1,0 +1,4 @@
+
+cat wages.csv|grep -E 'female|male' wages.csv|cut -d ',' -f 1,2,4|sed 's/,/ /g'|sort -k 3 -n|tail -n -10|grep -E 'female'|wc -l
+
+
