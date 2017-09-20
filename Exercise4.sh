@@ -14,12 +14,14 @@ echo "Number of Females in Top 10 Earners"
 cat wages.csv | sed 's/,/ /g' | sort -n -k 4 | tail -10 | grep "female" | wc -l
 
 #Minimum wages of 12 vs 16 years school
-val1=$(cat wages.csv | awk -F, '$3 = "12"' | sort -n -k "4" | head -2 | tail -1)
-val2=$(cat wages.csv | awk -F, '$3 = "16"' | sort -n -k "4" | head -2 | tail -1)
+val1=$(cat wages.csv | sed 's/,/ /g' | awk -F, '$3 = "12"' | sort -n -k "4" | cut -d ' ' -f 4 | head -2 | tail -1)
+val2=$(cat wages.csv | sed 's/,/ /g' | awk -F, '$3 = "16"' | sort -n -k "4" | cut -d ' ' -f 4 | head -2 | tail -1)
+echo "Min wage 12 years school"
 echo $val1
+echo "Min wage 16 years school"
 echo $val2
-
-
+#Difference in wages based on school years
+echo "$val2 - $val1" | bc
 
 
 
