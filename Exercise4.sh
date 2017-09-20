@@ -1,6 +1,5 @@
 
 
-
 #Q2
 #Print gender, yearsExperience, and wage for highest earner
 echo "Highest Earner"
