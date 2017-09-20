@@ -1,6 +1,5 @@
 
 
-
 #Q2
 #Print gender, yearsExperience, and wage for highest earner
 echo "Highest Earner"
@@ -15,5 +14,12 @@ echo "Number of Females in Top 10 Earners"
 cat wages.csv | sed 's/,/ /g' | sort -n -k 4 | tail -10 | grep "female" | wc -l
 
 #Minimum wages of 12 vs 16 years school
-$ cat wages.csv | awk -F, '$3 = "12"' | sort -n -k "4" | head -2 | tail -1
+val1=$(cat wages.csv | awk -F, '$3 = "12"' | sort -n -k "4" | head -2 | tail -1)
+val2=$(cat wages.csv | awk -F, '$3 = "16"' | sort -n -k "4" | head -2 | tail -1)
+echo $val1
+echo $val2
+
+
+
+
 
