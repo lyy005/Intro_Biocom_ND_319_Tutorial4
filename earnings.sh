@@ -2,6 +2,7 @@
 #Gender, years of Experience, wage for highest earner
 #Gender, years of experience, wage for lowest earner
 #Number of women in top 10 earners
+#Effect of graduating college on the minumum wage of earners
 
 #Usage: bash earnings.sh filename.csv
 
@@ -16,4 +17,7 @@ cat $1 | sed s/","/" "/g | sort -n -k4 | head -n 2 | tail -n 1 | cut -d ' ' -f 1
 echo "Women in Top 10 Earners:"
 
 cat $1 | sed s/","/" "/g | sort -n -k4 | tail -n 10 | grep -c "female" 
+
+val1=$(cat $1 | sed s/","/" "/g | awk '$3=="12"' | sort -n -k4 | head -n 1 | cut -d ' ' -f 4)
+
 
