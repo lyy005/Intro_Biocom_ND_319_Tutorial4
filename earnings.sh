@@ -9,3 +9,7 @@ echo "Highest Earner:"
 
 cat $1 | sed s/","/" "/g | sort -n -k4 | tail -n 1 | cut -d ' ' -f 1,2,4
 
+echo "Lowest Earner:"
+
+cat $1 | sed s/","/" "/g | sort -n -k4 | head -n 2 | tail -n 1 | cut -d ' ' -f 1,2,4
+
