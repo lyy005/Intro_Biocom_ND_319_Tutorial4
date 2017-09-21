@@ -1,0 +1,9 @@
+gender, yearsExerince, wage for the highest earner
+male 5 39.808917197
+gender, yearsExerince, wage for the lowest earner
+female 9 0.07655561
+the number of females in the top ten earners
+       2
+yearsExperience vs minimum_wage
+12 0.1028907398
+16 4.184513117
