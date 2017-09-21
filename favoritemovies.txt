@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+Howls Moving Castle
+Kiki's Delivery Service
+Spirited Away
+The Little Mermaid
+I Am Legend
+A Beautiful Mind
+=======
+A Beautiful Mind
+I Am Legend
+The Little Mermaid
+>>>>>>> c68b85d48397e22ac94f9a2b7b49a99131cff851
