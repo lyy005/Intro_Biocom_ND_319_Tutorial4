@@ -1,5 +1,4 @@
-
-!#/bin/bash
+#!/usr/bin/env bash
 
 ################################################################################
 # Part 1 by Zoe
@@ -50,4 +49,48 @@ done
 
 echo "Number of women in top 10 earners:"
 echo $COUNTER
+echo "-------------"
+
+################################################################################
+#Part 3 by Soren and Zoe
+
+COUNTERHIGHSCHOOL=$((0))
+HIGHSCHOOLTOTALWAGES=$((0))
+COUNTERCOLLEGE=$((0))
+COLLEGETOTALWAGES=$((0))
+for LINE in $(cat wages.csv)
+do
+  #echo $LINE
+  SCHOOLYEARS=$(echo $LINE | awk  -F ','  '{printf("%d",$3)}')
+  if [ $SCHOOLYEARS == 12 ]
+  then
+    ((COUNTERHIGHSCHOOL++))
+    WAGE=$(echo $LINE | awk  -F ','  '{printf("%f",$4)}')
+    HIGHSCHOOLTOTALWAGES=$(echo "$HIGHSCHOOLTOTALWAGES + $WAGE" | bc)
+    #echo $HIGHSCHOOLTOTALWAGES
+  fi
+  if [ $SCHOOLYEARS == 16 ]
+  then
+    ((COUNTERCOLLEGE++))
+    WAGE=$(echo $LINE | awk  -F ','  '{printf("%f",$4)}')
+    COLLEGETOTALWAGES=$(echo "$COLLEGETOTALWAGES + $WAGE" | bc)
+    #echo $COLLEGETOTALWAGES
+  fi
+
+  #echo $SCHOOLYEARS
+  #WAGE=$(echo $LINE | awk  -F ','  '{printf("%f",$4)}')
+  #echo $WAGE
+done
+#echo $(awk '{printf("%s %s","Hello", "World")}')
+#echo $COUNTERHIGHSCHOOL
+#echo $HIGHSCHOOLTOTALWAGES
+AVGEHIGHSCHOOLWAGES=$(echo "$HIGHSCHOOLTOTALWAGES / $COUNTERHIGHSCHOOL" | bc -l)
+#echo $COUNTERCOLLEGE
+#echo $COLLEGETOTALWAGES
+AVGCOLLEGEWAGES=$(echo "$COLLEGETOTALWAGES / $COUNTERCOLLEGE" | bc -l)
+
+echo $AVGEHIGHSCHOOLWAGES
+echo $AVGCOLLEGEWAGES
+echo "$COUNTERHIGHSCHOOL high school graduates (12 years) earned an average of $AVGEHIGHSCHOOLWAGES USD/h"
+echo "$COUNTERCOLLEGE college graduates (16 years) earned an average of $AVGCOLLEGEWAGES USD/h"
 echo "-------------"
