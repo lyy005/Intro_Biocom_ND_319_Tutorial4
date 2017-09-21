@@ -22,4 +22,6 @@ val1=$(cat $1 | sed s/","/" "/g | awk '$3=="12"' | sort -n -k4 | head -n 1 | cut
 
 val2=$(cat $1 | sed s/","/" "/g | awk '$3=="16"' | sort -n -k4 | head -n 1 | cut -d ' ' -f 4)
 
+echo "Effect of Graduating College on Minimum Wage:"
 
+echo "$val2-$val1" | bc
