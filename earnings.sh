@@ -1,5 +1,3 @@
-#!
-
 #Script prints the following information for a given dataset:
 #Gender, years of Experience, wage for highest earner
 #Gender, years of experience, wage for lowest earner
@@ -7,4 +5,7 @@
 
 #Usage: earnings.sh filename.csv
 
-cat $1 | sed 's/","/" "/g" | sort -n -k5
+echo "Highest Earner:"
+
+cat $1 | sed s/","/" "/g | sort -n -k4 | tail -n 1 | cut -d ' ' -f 1,2,4
+
