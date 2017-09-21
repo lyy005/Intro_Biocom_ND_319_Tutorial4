@@ -10,23 +10,23 @@
 cat $1 | sed 's/,/ /g' | cut -d ' ' -f 1,2 | uniq | sort -n -k 1 | sort -n -k 2 | uniq > output_ex4.txt
 
 #2:
-echo "Highest Earner:" >> output_ex4.txt
+echo "Highest Earner:"
 
-cat $1 | sed s/","/" "/g | sort -n -k4 | tail -n 1 | cut -d ' ' -f 1,2,4 >> output_ex4.txt
+cat $1 | sed s/","/" "/g | sort -n -k4 | tail -n 1 | cut -d ' ' -f 1,2,4
 
-echo "Lowest Earner:" >> output_ex4.txt
+echo "Lowest Earner:"
 
-cat $1 | sed s/","/" "/g | sort -n -k4 | head -n 2 | tail -n 1 | cut -d ' ' -f 1,2,4 >> output_ex4.txt
+cat $1 | sed s/","/" "/g | sort -n -k4 | head -n 2 | tail -n 1 | cut -d ' ' -f 1,2,4
 
-echo "Women in Top 10 Earners:" >> output_ex4.txt
+echo "Women in Top 10 Earners:"
 
-cat $1 | sed s/","/" "/g | sort -n -k4 | tail -n 10 | grep -c "female" >> output_ex4.txt
+cat $1 | sed s/","/" "/g | sort -n -k4 | tail -n 10 | grep -c "female"
 
+#3:
 val1=$(cat $1 | sed s/","/" "/g | awk '$3=="12"' | sort -n -k4 | head -n 1 | cut -d ' ' -f 4)
 
 val2=$(cat $1 | sed s/","/" "/g | awk '$3=="16"' | sort -n -k4 | head -n 1 | cut -d ' ' -f 4)
 
-#3:
-echo "Effect of Graduating College on Minimum Wage:" >> output_ex4.txt
+echo "Effect of Graduating College on Minimum Wage:"
 
-echo "$val2-$val1" | bc >> output_ex4.txt
+echo "$val2-$val1" | bc
