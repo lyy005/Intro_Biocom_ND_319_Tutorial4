@@ -5,6 +5,7 @@
 cat wages.csv | cut -d ',' -f1,2 | sed 's/\<[0-9]\>/0&/' | sed 's/,/ /g' > a.tmp.csv
 head -1 a.tmp.csv > u.gender.year.csv
 sed '1d' a.tmp.csv |  sort -n | uniq >>u.gender.year.csv
+rm a.tmp.csv
 echo "unique gender and experience .csv complete"
 
 #Q2
