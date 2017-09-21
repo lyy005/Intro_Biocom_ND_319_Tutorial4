@@ -20,4 +20,6 @@ cat $1 | sed s/","/" "/g | sort -n -k4 | tail -n 10 | grep -c "female"
 
 val1=$(cat $1 | sed s/","/" "/g | awk '$3=="12"' | sort -n -k4 | head -n 1 | cut -d ' ' -f 4)
 
+val2=$(cat $1 | sed s/","/" "/g | awk '$3=="16"' | sort -n -k4 | head -n 1 | cut -d ' ' -f 4)
+
 
