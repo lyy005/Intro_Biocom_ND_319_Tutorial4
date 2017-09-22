@@ -6,14 +6,14 @@ female 5
 female 6
 female 7
 female 8
+female 9
+female 10
 female 11
 female 12
 female 13
 female 14
 female 15
 female 16
-female 17
-female 18
 male 2
 male 3
 male 4
